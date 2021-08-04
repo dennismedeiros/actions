@@ -33,7 +33,7 @@ runs:
   using: 'docker'
   image: 'docker://veracode:api-wrapper-java
   args: 
-    - 'java -jar /opt/veracode/api-wrapper.jar --version'
+    - java -jar /opt/veracode/api-wrapper.jar --version
 
 
 
@@ -68,7 +68,7 @@ runs:
         # name: my-artifact
         # path: veracode-pipeline-scan-results-to-sarif.zip
 
-    download the Veracode Static Analysis Pipeline scan jar
+   # download the Veracode Static Analysis Pipeline scan jar
     # - uses: wei/curl@master
       # with:
         # args: -O https://downloads.veracode.com/securityscan/pipeline-scan-LATEST.zip
@@ -90,5 +90,5 @@ runs:
         # pipeline-results-json: results.json
     # - uses: github/codeql-action/upload-sarif@v1
       # with:
-        Path to SARIF file relative to the root of the repository
+       # Path to SARIF file relative to the root of the repository
         # sarif_file: veracode-results.sarif
