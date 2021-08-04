@@ -7,67 +7,43 @@ branding:
 description: "Receives file and generates output"
 
 inputs:
-  who-to-greet:  # id of input
+  vid:
     description: 'Who to greet'
     required: true
     default: 'World'
-  octocatEyeColor:
-    description: 'Eye color of the Octocats'
+  vkey:  # id of input
+    description: 'Who to greet'
     required: true
-    default: 'target/verademo.war'
-    
-   #filePath: # id of input
+    default: 'World'
+  targetPath:
+      description: "Path to test script"
+      default: "target/verademo.war"
+      required: true
+      
+   #policyConfiguration:
    #   description: "Path to test script"
-  #    default: "target/verademo.war"
-  #    required: true
+   #   required: true
+   #   default: "testMe"
+   #baselineFile:
+   #   description: "Path to test script"
+   #   required: true
+   #   default: "testMe"
 
-#steps:
-   #    run: echo "Hello ${{ github.event.inputs.name }}"
-    
-    
-   #   outputs:
+# outputs:
     # results-file: # id of output
-   #   description: "Path to results file"
+    #  description: "Path to results file"
  
 runs:
-  using: 'docker'
-  image: 'docker://veracode/api-wrapper-java'
-  args: 
-    - ls -R
-
-
-
-  # using: "composite"
-  # steps:
-      # - run: echo Hello ${{ inputs.who-to-greet }}.
-        # shell: bash
-      # - run: echo Hello ${{ inputs.octocatEyeColor }}.
-        # shell: bash
-        
-      # - run: echo Hello ${{ secrets.VERACODE_API_ID_TEST }}.
-        # shell: bash
-      
-      # - run: echo Hello ${{ secrets.VERACODE_API_KEY_TEST }}.
-        # shell: bash
-        
-      # - name: Say Hello
-        # run: echo "HELLO"
-        # shell: bash
-
-      # - name: Retrieve 
-
-
-    # - uses: papeloto/action-zip@v1
-      # with:
-        # files: /
-        # recursive: true
-        # dest: veracode-pipeline-scan-results-to-sarif.zip
-
-    # - uses: actions/upload-artifact@v1
-      # with:
-        # name: my-artifact
-        # path: veracode-pipeline-scan-results-to-sarif.zip
-
+  #sing: 'docker'
+  #mage: 'docker://veracode/api-wrapper-java'
+  using: "composite"
+  steps:
+      - run: echo Hello ${{ inputs.vid }}.
+        shell: bash
+      - run: echo Hello ${{ inputs.vkey }}.
+        shell: bash
+      - run: echo Hello ${{ inputs.targetPath }}.
+        shell: bash
    # download the Veracode Static Analysis Pipeline scan jar
     # - uses: wei/curl@master
       # with:
